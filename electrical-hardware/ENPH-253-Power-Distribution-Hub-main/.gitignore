@@ -1,0 +1,11 @@
+# Altium history and backups
+History/
+__Previews/
+Project Logs for Power Distribution Hub/
+
+# Log files and compilation outputs
+*.log
+*.Annotation
+
+# Project outputs (Gerbers, BOMs, assembly drawings)
+Project Outputs*/

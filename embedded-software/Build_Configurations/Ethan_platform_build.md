@@ -1,0 +1,26 @@
+; PlatformIO Project Configuration File
+;
+; Build options: build flags, source filter
+; Upload options: custom upload port, speed and extra flags
+; Library options: dependencies, extra library storages
+; Advanced options: extra scripting
+;
+; Please visit documentation for the other options and examples
+; https://docs.platformio.org/page/projectconf.html
+
+[env:esp32-s3-devkitm-1]
+platform = https://github.com/pioarduino/platform-espressif32/releases/download/55.03.30/platform-espressif32.zip
+board = esp32-s3-devkitm-1
+framework = arduino
+monitor_speed = 115200
+build_flags =
+-Iinclude
+-D ARDUINO_USB_MODE=1
+-D ARDUINO_USB_CDC_ON_BOOT=1
+monitor_filters = esp32_exception_decoder
+lib_deps =
+Adafruit SSD1306
+Adafruit MPU6050
+FastAccelStepper
+bblanchon/ArduinoJson@^7
+upload_port = /dev/ttyACM0
