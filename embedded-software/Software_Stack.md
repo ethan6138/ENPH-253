@@ -227,13 +227,15 @@ The Kalman filter implementation is adapted from TKJ Electronics' open-source fi
 
 3-DOF arm: shoulder (α) and elbow (β) servos plus a stepper turret (γ), 12.7 cm links.
 
-**Inverse kinematics** (`InverseKinematics.cpp`) solves a target point $(x, y, z)$
-geometrically:
+**Inverse kinematics** (`InverseKinematics.cpp`) solves a target point $(x, y, z)$ geometrically:
 
-$$r = \sqrt{x^2 + y^2}, \quad z' = z - h, \quad D = \sqrt{r^2 + z'^2}, \quad
-\gamma = \operatorname{atan2}(-x, y)$$
+$$r = \sqrt{x^2 + y^2}, \qquad z' = z - h, \qquad D = \sqrt{r^2 + z'^2}, \qquad \gamma = \mathrm{atan2}(-x,\ y)$$
 
-α and β follow from the law of cosines on the two-link triangle. Targets out of reach are
+where $h$ is the turret height and $L_1 = L_2 = 12.7$ cm are the link lengths. The law of cosines on the two-link triangle gives
+
+$$\phi = \arccos\left(\frac{D^2 + L_1^2 - L_2^2}{2 L_1 D}\right), \qquad \psi = \arccos\left(\frac{L_1^2 + L_2^2 - D^2}{2 L_1 L_2}\right), \qquad \theta = \arcsin\left(\frac{z'}{D}\right)$$
+
+$$\alpha = \phi + \theta, \qquad \beta = \alpha - \pi + \psi$$ Targets out of reach are
 rejected and the arm holds its current pose. The arm is constrained to one solution per
 target.
 
