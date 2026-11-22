@@ -16,7 +16,7 @@ constexpr int PIN_PWM_BETA{3};
 // Lazy susan stepper/gamma pins
 constexpr int PIN_GPIO_STEP{5};
 constexpr int PIN_GPIO_DIR{6};
-constexpr int PIN_GPIO_ENA{100}; // THIS DOES NOT EXIST WHAT FUCKKKKK
+constexpr int PIN_GPIO_ENA{100}; // THIS DOES NOT EXIST WHAT
 
 // Ultrasonic sensor Pins
 constexpr int PIN_GPIO_ECHO{41};
