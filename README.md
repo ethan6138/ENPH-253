@@ -58,7 +58,7 @@ Firmware is layered so modules never call each other directly. `app.cpp` owns th
 | `encoderTask` | 0 | 100 ms | Quadrature ticks → wheel RPM |
 | `telemetryTask` | 0 | 150 ms | JSON telemetry out, tuning commands in |
 | `driveTask` | 1 | 20 ms | Wheel PID + active drive mode |
-| `armTask` | 1 | – | Rate-limited arm motion |
+| `armTask` | 1 | 5 ms | Rate-limited arm motion |
 | `k230Task` | 1 | 10 ms | UART parsing of camera detections |
 | `oscillatorTask` | 1 | 100 ms | Metal (foil) detection via pulse counter |
 | `missionSequencer` | 1 | – | Phase state machine |
